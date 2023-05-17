@@ -1,0 +1,509 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans:wght@300&display=swap');
+
+@media (max-width: 900px) {
+  .feeds {
+    width: 100%;
+    margin: 0;
+  }
+
+  .main-right {
+    display: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 14px;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background-color: transparent;
+}
+
+input {
+  border: transparent;
+  background-color: transparent;
+}
+
+$logoFont: 'Lobster', cursive;
+$textFont: 'Noto Sans', sans-serif;
+
+$spacing: 30px;
+
+$headerSizeTop: 10px;
+$headerSizeSide: 10px;
+
+$accountLeftSize: 12px;
+$accountInfoTop: 5px;
+
+$backgroundColor: #f2f3f5;
+$borderColor: #ebedf0;
+$whiteColor: #ffffff;
+$grayColor: rgb(115, 115, 115);
+
+@mixin flexCenter($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin absoluteLeft($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin absoluteRight($top, $right) {
+  position: absolute;
+  top: $top;
+  right: $right;
+}
+
+@mixin widthHeight($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin fontAwesome {
+  padding: 0 5px;
+  font-size: 20px;
+}
+
+@mixin nthChild {
+  &:first-child {
+    font-weight: 600;
+  }
+
+  &:nth-child(2) {
+    color: $grayColor;
+    font-size: 14px;
+  }
+}
+
+@mixin triangle($color) {
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid $color;
+  border-left: 10px solid transparent;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: $whiteColor;
+}
+
+#nav-bar {
+  @include flexCenter(center, space-between);
+  @include widthHeight(85%, 60px);
+  position: relative;
+  margin: auto;
+  padding: 0 10px;
+}
+
+.logo {
+  @include flexCenter(center, null);
+  padding-left: 10px;
+
+  img {
+    @include widthHeight(30px, 90%);
+    margin-right: 20px;
+  }
+
+  a {
+    padding-left: 20px;
+    border-left: solid 1px rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    font-family: $logoFont;
+    font-size: 20px;
+  }
+}
+
+.search-bar {
+  position: relative;
+  width: 300px;
+
+  // .faMagnifyingGlass {
+  //   @include absoluteLeft(5px, 30px);
+  //   width: 10px;
+  // }
+}
+
+.result-box-triangle {
+  @include widthHeight(0, 0);
+  @include triangle($backgroundColor);
+  @include absoluteLeft(23px, 50%);
+
+  .none {
+    display: none;
+  }
+}
+
+.result-box {
+  @include absoluteLeft(20px, calc(50% - 150px));
+  @include flexColumn;
+  z-index: 1;
+  width: 100%;
+  padding: 0 $headerSizeSide;
+  background-color: $backgroundColor;
+
+  li {
+    @include flexCenter(center, none);
+    position: relative;
+    width: 100%;
+    padding: $accountInfoTop $headerSizeSide;
+  }
+}
+
+.filtered-image {
+  @include widthHeight(30px, 30px);
+  border-radius: 50%;
+}
+
+.result-account {
+  @include flexColumn;
+  height: 100%;
+  padding: 0 $accountLeftSize;
+
+  p {
+    @include nthChild;
+  }
+}
+
+.search-bar input {
+  @include widthHeight(100%, 25px);
+  background-color: $backgroundColor;
+  text-align: center;
+}
+
+.nav-right img {
+  @include widthHeight(30px, 90%);
+  margin: 0px 5px;
+}
+
+.nav-profile-menu-bar {
+  @include absoluteRight(70px, 8%);
+  margin: 0;
+  padding-left: 0;
+  border: 1px solid $whiteColor;
+  border-radius: 2px;
+}
+
+.nav-profile-menu {
+  z-index: 1;
+  padding: 5px 60px 5px 20px;
+  background-color: $whiteColor;
+  text-align: start;
+
+  span {
+    padding: 10px 0 5px 10px;
+  }
+
+  &:last-child {
+    border-top: 1px solid $borderColor;
+  }
+
+  &.disabled {
+    display: none;
+  }
+
+  .nav-profile-triangle {
+    @include widthHeight(0, 0);
+    @include triangle($whiteColor);
+    @include absoluteRight(60px, 9%);
+  }
+}
+
+main {
+  @include flexCenter(null, center);
+  height: 100%;
+  padding: 80px $spacing 60px $spacing;
+  background-color: $backgroundColor;
+}
+
+.feeds {
+  @include widthHeight(35%, 90%);
+  margin: 0 20px;
+  border: 1px solid $borderColor;
+  background-color: $whiteColor;
+}
+
+.top {
+  @include flexCenter(center, space-between);
+  padding: $headerSizeTop $headerSizeSide;
+}
+
+.top-logo {
+  @include flexCenter(center, space-between);
+
+  img {
+    @include widthHeight(30px, 30px);
+    border-radius: 50%;
+  }
+
+  span {
+    padding-left: $accountLeftSize;
+    font-weight: 600;
+  }
+}
+
+.image {
+  img {
+    @include widthHeight(100%, 600px);
+  }
+}
+
+.feed-icons {
+  @include flexCenter(center, space-between);
+  @include widthHeight(100%, 35px);
+  padding: 0 $headerSizeSide;
+
+  // .faHeart,
+  // .faComment,
+  // .faBookmark,
+  // .faArrowUpFromBracket {
+  //   @include fontAwesome;
+  // }
+}
+
+.likes {
+  @include flexCenter(center, null);
+  padding: $headerSizeTop $headerSizeSide;
+
+  img {
+    @include widthHeight(30px, 30px);
+    display: inline-block;
+    border-radius: 50%;
+  }
+
+  span {
+    padding-left: $accountLeftSize;
+  }
+
+  // .likesInfo {
+  //   padding-left: 0;
+  //   font-weight: 600;
+  // }
+}
+
+.contents {
+  padding: $headerSizeTop $headerSizeSide;
+
+  span:first-child {
+    font-weight: 600;
+  }
+
+  span {
+    &:nth-child(3) {
+      color: $grayColor;
+    }
+  }
+
+  div {
+    color: rgb(115, 115, 115);
+    font-size: 12px;
+  }
+}
+
+// .commentList {
+//   margin: 2px 0;
+//   padding: 0 $headerSizeSide;
+
+//   li {
+//     position: relative;
+//     margin-left: 5px;
+//     padding-left: 0px;
+//     word-wrap: break-word;
+//   }
+
+//   button {
+//     margin: 0 5px 0 10px;
+//     @include absoluteRight(0, 20px);
+//   }
+
+//   .faHeart {
+//     @include absoluteRight(4px, 10px);
+//     margin-left: 100px;
+//   }
+// }
+
+span.comment-account {
+  font-weight: 600;
+}
+
+.comment {
+  @include flexCenter(center, null);
+  position: relative;
+  width: 100%;
+  padding: $headerSizeTop $headerSizeSide;
+  text-align: center;
+
+  input {
+    @include widthHeight(100%, 30px);
+    padding-left: 5px;
+  }
+
+  button {
+    @include absoluteRight(10px, $headerSizeSide);
+    bottom: $headerSizeTop;
+    font-weight: bold;
+  }
+}
+
+.main-right {
+  @include flexCenter(center, null);
+  @include widthHeight(30%, 90%);
+  flex-direction: column;
+  margin: 0 20px;
+}
+
+.account {
+  @include flexCenter(center, null);
+  width: 80%;
+  padding: $headerSizeTop 0;
+
+  img {
+    @include widthHeight(40px, 40px);
+    border-radius: 50%;
+  }
+}
+
+.account-info {
+  @include flexColumn;
+  height: 100%;
+  padding: 0 $accountLeftSize;
+
+  p {
+    margin: 0;
+    @include nthChild;
+  }
+}
+
+.story {
+  width: 80%;
+  margin-top: 20px;
+  border: 1px solid $borderColor;
+  background-color: #ffffff;
+}
+
+.story-header {
+  @include flexCenter(center, space-between);
+  padding: $headerSizeTop $headerSizeSide;
+
+  p {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  span {
+    color: $grayColor;
+  }
+}
+
+.story-list {
+  padding: 0 $headerSizeSide;
+
+  li {
+    @include flexCenter(center, null);
+    padding: $accountInfoTop $headerSizeSide;
+  }
+
+  img {
+    @include widthHeight(30px, 30px);
+    border-radius: 50%;
+  }
+}
+
+.account-detail {
+  margin: 0 $accountLeftSize;
+
+  p {
+    @include nthChild;
+  }
+}
+
+.recommend {
+  width: 80%;
+  margin-top: 20px;
+  border: 1px solid $borderColor;
+  background-color: #ffffff;
+}
+
+.recommend-header {
+  @include flexCenter(center, space-between);
+  padding: $headerSizeTop $headerSizeSide;
+
+  p {
+    margin: 0;
+    font-weight: 600;
+  }
+
+  span {
+    color: $grayColor;
+  }
+}
+
+.recommend-list {
+  padding: 0 $headerSizeSide;
+
+  li {
+    @include flexCenter(center, null);
+    position: relative;
+    width: 100%;
+    padding: $headerSizeTop $headerSizeSide;
+  }
+  img {
+    @include widthHeight(30px, 30px);
+    border-radius: 50%;
+  }
+
+  button {
+    color: rgb(0, 149, 246);
+    @include absoluteRight(0, $headerSizeSide);
+  }
+}
+
+.recommend-account {
+  @include flexColumn;
+  height: 100%;
+  padding: 0 $accountLeftSize;
+
+  p {
+    @include nthChild;
+  }
+}
+
+.footer {
+  width: 80%;
+  margin-top: 20px;
+  color: rgb(199, 199, 199);
+}
