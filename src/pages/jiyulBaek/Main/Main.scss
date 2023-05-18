@@ -318,7 +318,8 @@ main {
 .contents {
   padding: $headerSizeTop $headerSizeSide;
 
-  span:first-child {
+  .contents-account {
+    margin-right: 5px;
     font-weight: 600;
   }
 
@@ -338,11 +339,15 @@ main {
   margin: 2px 0;
   padding: 0 $headerSizeSide;
 
-  li {
+  .comment {
     position: relative;
     margin-left: 5px;
     padding-left: 0px;
     word-wrap: break-word;
+
+    .comment-account {
+      margin-right: 5px;
+    }
   }
 
   button {
@@ -363,7 +368,7 @@ span.comment-account {
   font-weight: 600;
 }
 
-.comment {
+.comment-input {
   @include flexCenter(center, null);
   position: relative;
   width: 100%;

@@ -13,7 +13,7 @@ function MainJiyul() {
     }
   };
 
-  const handleKeyDown = event => {
+  const handleKeyUp = event => {
     const key = event.code;
     if (key === 'Enter') {
       addComment();
@@ -21,7 +21,7 @@ function MainJiyul() {
   };
 
   const commentList = comments.map(comment => (
-    <Comment key={comment.index} comment={comment} />
+    <Comment key={comment} comment={comment} />
   ));
 
   return (
@@ -158,7 +158,7 @@ function MainJiyul() {
           </div>
 
           <div className="contents">
-            <span>jy_baek</span>
+            <span className="contents-account">jy_baek</span>
             <span>위워크에서 진행된 베이킹 클래스...</span>
             <span>더 보기</span>
             <div>42분 전</div>
@@ -166,12 +166,12 @@ function MainJiyul() {
 
           <ul className="comment-list">{commentList}</ul>
 
-          <div className="comment">
+          <div className="comment-input">
             <input
               value={inputValue}
               type="text"
               onChange={event => setInputValue(event.target.value)}
-              onKeyDown={handleKeyDown}
+              onKeyUp={handleKeyUp}
               placeholder="댓글 달기"
             />
             <button onClick={addComment}>게시</button>
