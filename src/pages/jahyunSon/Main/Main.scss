@@ -1,0 +1,257 @@
+@import '../../../styles/mixin';
+
+@media screen and (max-width: 840px) {
+  .main-right {
+    display: none;
+  }
+}
+
+.main {
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+  }
+
+  .liked {
+    color: #fb3958;
+  }
+
+  .floatLeft {
+    margin: 0;
+    padding-right: 6px;
+    float: left;
+  }
+
+  button {
+    padding: 0;
+    border: none;
+    background-color: white;
+  }
+
+  nav {
+    @include flexSort(row, space-between, center);
+    margin: 15px;
+
+    .navBarLogo {
+      @include flexSort(row, center, center);
+      margin-left: 50px;
+
+      .logo {
+        margin: 0 10px;
+        padding: 1px 10px;
+        border-left: 1px solid black;
+        font-family: 'Lobster', sans-serif;
+        font-size: 20px;
+      }
+    }
+
+    .searchBar {
+      @include flexSort(row, center, center);
+
+      .searchInput {
+        width: 160px;
+        height: 22px;
+        border: 1px solid #e6e6e6;
+        background-color: #fafafa;
+
+        &::placeholder {
+          font-size: 10px;
+          text-align: center;
+        }
+      }
+
+      .magnifyingGlass {
+        width: 8px;
+        margin: 2px;
+        transform: translate(-102px, 0.5px);
+      }
+    }
+
+    .iconsOnRight {
+      @include flexSort(row, flex-end, center);
+
+      .icon {
+        margin: 0 10px;
+      }
+    }
+  }
+
+  main {
+    @include flexSort(row, center, flex-start);
+    padding: 30px 10px;
+    border-top: 1px solid #e6e6e6;
+    background-color: #fafafa;
+
+    section.feed {
+      margin: 0 20px 0 50px;
+
+      article {
+        width: 470px;
+        border: 1px solid #e6e6e6;
+        background-color: white;
+
+        header {
+          @include flexSort(row, space-between, center);
+          margin: 8px 4px 8px 5px;
+
+          .userInfo {
+            @include flexSort(row, flex-start, center);
+
+            .pfp {
+              width: 32px;
+              margin-left: 8px;
+              border-radius: 50%;
+            }
+
+            .username {
+              margin: 0 0 0 12px;
+            }
+          }
+        }
+
+        .feedImg {
+          width: 468px;
+        }
+
+        .interactionBar {
+          @include flexSort(row, space-between, center);
+          margin: 0 5px 0 10px;
+        }
+
+        .likedListContainer {
+          @include flexSort(row, flex-start, center);
+          height: 20px;
+          margin: 0 0 6px 12px;
+
+          .pfpSmall {
+            width: 15px;
+            margin-right: 4px;
+            border-radius: 50%;
+          }
+        }
+
+        .caption {
+          margin: 2px 12px;
+        }
+
+        .commentSection {
+          @include flexSort(column, center, flex-start);
+
+          .commentsList {
+            margin: 1px 0 1px 12px;
+            padding: 0;
+
+            .commentAndBtns {
+              @include flexSort(row, flex-start, flex-start);
+              //align-items: top;
+
+              .comment {
+                width: 400px;
+                margin: 3px 0;
+                float: left;
+                word-wrap: break-word;
+              }
+
+              .deleteBtn {
+                width: 20px;
+                height: 20px;
+                margin: 0px 5px;
+              }
+
+              .likeBtn {
+                width: 10px;
+                height: 10px;
+                margin: 3px 5px;
+              }
+            }
+          }
+
+          .postComment {
+            width: 100%;
+            margin-top: 5px;
+            border-top: 1px solid #e6e6e6;
+
+            .commentInput {
+              width: 360px;
+              height: 44px;
+              padding: 0 12px;
+              border-style: none;
+              outline: none;
+              text-align: left;
+            }
+
+            .commentBtn {
+              padding: 15px 12px;
+              float: right;
+              border-style: none;
+              background-color: white;
+              color: #c8e2fb;
+
+              &:hover,
+              &:focus {
+                color: #5eacd6;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    aside.main-right {
+      width: 250px;
+      margin: 0 50px 0 20px;
+
+      section {
+        margin: 10px 0;
+
+        .header {
+          @include flexSort(row, space-between, center);
+
+          span {
+            margin: 10px 12px;
+          }
+        }
+      }
+
+      .myProfile {
+        display: flex;
+        margin: 5px;
+
+        .myPfp {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+        }
+      }
+
+      .story,
+      .suggestedForYou {
+        border: 1px solid #e6e6e6;
+        background-color: white;
+      }
+
+      .myHandle,
+      .otherUserInfo {
+        @include flexSort(column, center, flex-start);
+        margin: 0 8px;
+      }
+
+      .profile {
+        display: flex;
+        margin: 2px 12px 12px;
+      }
+
+      .pfp {
+        width: 30px;
+        margin-right: 0px;
+        border-radius: 50%;
+      }
+
+      footer {
+        width: 210px;
+        padding: 0 5px;
+      }
+    }
+  }
+}

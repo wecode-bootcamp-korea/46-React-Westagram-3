@@ -1,0 +1,70 @@
+@import '../../../styles/mixin';
+
+.login {
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  article {
+    @include flexSort(column, space-between, center);
+    width: 320px;
+    height: 350px;
+    margin: 30px;
+    border: 1px solid lightgrey;
+    background-color: white;
+
+    .topContainer {
+      @include flexSort(column, center, center);
+
+      .logo {
+        margin: 30px;
+        font-family: 'Lobster', sans-serif;
+        font-size: 40px;
+      }
+
+      #loginBtn {
+        width: 220px;
+        height: 30px;
+        margin: 10px;
+        border-style: none;
+        border-radius: 4px;
+        background-color: #c4e3fb;
+        color: white;
+      }
+
+      #loginBtn:hover,
+      #loginBtn:focus {
+        background-color: #5eacd6;
+      }
+
+      #loginBtn:disabled {
+        background-color: #c4e3fb;
+      }
+
+      #userInput {
+        @include flexSort(column, center, center);
+
+        & > input {
+          width: 220px;
+          height: 36px;
+          margin: 2.5px;
+          padding: 10px;
+          border: 1px solid #efefef;
+          border-radius: 3px;
+          outline: none;
+          background-color: #fafafa;
+          color: #a2a2a2;
+        }
+
+        ::placeholder {
+          text-align: left;
+        }
+      }
+    }
+
+    .forgotPassword {
+      margin: 15px;
+      color: #04386c;
+    }
+  }
+}
