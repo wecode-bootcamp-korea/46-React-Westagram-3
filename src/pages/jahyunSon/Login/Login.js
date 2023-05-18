@@ -12,14 +12,14 @@ const LoginJahyun = () => {
     navigate('/main-jahyun');
   };
 
-  const saveUserId = event => {
-    setUserId(event.target.value);
-    isUserInfoValid(event.target.value, userPassword);
+  const saveUserId = e => {
+    setUserId(e.target.value);
+    isUserInfoValid(e.target.value, userPassword);
   };
 
-  const savePassword = event => {
-    setUserPassword(event.target.value);
-    isUserInfoValid(userId, event.target.value);
+  const savePassword = e => {
+    setUserPassword(e.target.value);
+    isUserInfoValid(userId, e.target.value);
   };
 
   const isUserInfoValid = (id, password) => {
