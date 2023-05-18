@@ -1,7 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Main.scss';
 
 function MainJiyul() {
+  const [inputValue, setInputValue] = useState('');
+  const [comments, setComments] = useState([]);
+
+  const addComment = () => {
+    if (inputValue !== '') {
+      setComments([...comments, inputValue]);
+      setInputValue('');
+    }
+  };
+
+  const handleKeyDown = event => {
+    const key = event.code;
+    if (key === 'Enter') {
+      addComment();
+    }
+  };
+
+  const showingComment = comments.map((comment, index) => (
+    <li className="commentList-first" key={index}>
+      <span className="comment-account">jy_baek</span>
+      <span>{comment}</span>
+      <button>삭제</button>
+      <img
+        className="fa-heart"
+        src="/images/jiyulBaek/heart_white.png"
+        alt="unclicked_heart"
+      />
+    </li>
+  ));
+
   return (
     <>
       <header>
@@ -142,22 +172,17 @@ function MainJiyul() {
             <div>42분 전</div>
           </div>
 
-          <ul className="comment-list">
-            <li className="commentList-first">
-              <span className="comment-account">neceosecius</span>
-              <span>거봐 좋았잖아~</span>
-              <button>삭제</button>
-              <img
-                className="fa-heart"
-                src="/images/jiyulBaek/heart_white.png"
-                alt="unclicked_heart"
-              />
-            </li>
-          </ul>
+          <ul className="comment-list">{showingComment}</ul>
 
           <div className="comment">
-            <input placeholder="댓글 달기" />
-            <button>게시</button>
+            <input
+              value={inputValue}
+              type="text"
+              onChange={event => setInputValue(event.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="댓글 달기"
+            />
+            <button onClick={addComment}>게시</button>
           </div>
         </section>
 
