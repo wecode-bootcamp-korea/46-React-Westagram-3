@@ -1,18 +1,5 @@
 import React from 'react';
 import './Main.scss';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import {
-//   faMagnifyingGlass,
-//   faGear,
-//   faEllipsis,
-//   faArrowUpFromBracket,
-// } from '@fortawesome/free-solid-svg-icons';
-// import {
-//   faBookmark,
-//   faComment,
-//   faHeart,
-//   faUser,
-// } from '@fortawesome/free-regular-svg-icons';
 
 function MainJiyul() {
   return (
@@ -20,14 +7,19 @@ function MainJiyul() {
       <header>
         <nav id="nav-bar">
           <div className="logo">
-            <img src="/images/jiyulBaek/instagram.png" alt="logo" />
+            <img
+              className="logo-img"
+              src="/images/jiyulBaek/instagram.png"
+              alt="logo"
+            />
             <a href="/">WESTAGRAM</a>
           </div>
           <div className="search-bar">
-            {/* <FontAwesomeIcon
-              icon={faMagnifyingGlass}
-              className="faMagnifyingGlass"
-            /> */}
+            <img
+              className="fa-magnifying-glass"
+              src="/images/jiyulBaek/magnifyingglass.png"
+              alt="logo"
+            />
             <input type="text" placeholder="검색" />
             {/* <div className="searchBarMenu">
               <div className="result-box-triangle none"></div>
@@ -50,24 +42,36 @@ function MainJiyul() {
             />
           </div>
         </nav>
-        <div className="navProfile">
-          {/* <div className="nav-profile-triangle disabled"></div>
-          <ul className="nav-profile-menu-bar disabled"> */}
-          {/* <li className="navProfileMenu"> */}
-          {/* <FontAwesomeIcon icon={faUser} className="faUser" />
+        {/* <div className="navProfile">
+          <div className="nav-profile-triangle disabled" />
+          <ul className="nav-profile-menu-bar disabled">
+            <li className="nav-profile-menu">
+              <img
+                className="fa-user"
+                src="/images/jiyulBaek/user.png"
+                alt="user-icon"
+              />
               <span>프로필</span>
-            </li> */}
-          {/* <li className="navProfileMenu">
-              <FontAwesomeIcon icon={faBookmark} className="faBookmark" />
+            </li>
+            <li className="nav-profile-menu">
+              <img
+                className="fa-bookmark"
+                src="/images/jiyulBaek/bookmark.png"
+                alt="bookmark-icon"
+              />
               <span>저장됨</span>
             </li>
-            <li className="navProfileMenu">
-              <FontAwesomeIcon icon={faGear} className="fa-gear" />
+            <li className="nav-profile-menu">
+              <img
+                className="fa-gear"
+                src="/images/jiyulBaek/gear.png"
+                alt="setting-icon"
+              />
               <span>설정</span>
-          //   </li> */}
-          {/* //   <li className="navProfileMenu">로그아웃</li>
-          // </ul> */}
-        </div>
+            </li>
+            <li className="nav-profile-menu">로그아웃</li>
+          </ul>
+        </div> */}
       </header>
 
       <main>
@@ -80,8 +84,12 @@ function MainJiyul() {
               />
               <span>jy_baek</span>
             </div>
-            <div className="topIcon">
-              {/* <FontAwesomeIcon icon={faEllipsis} className="faEllipsis" /> */}
+            <div className="top-icon">
+              <img
+                className="fa-ellipsis"
+                src="/images/jiyulBaek/ellipsis.png"
+                alt="ellipsis"
+              />
             </div>
           </div>
 
@@ -91,15 +99,28 @@ function MainJiyul() {
 
           <div className="feed-icons">
             <div className="feed-icons-left">
-              {/* <FontAwesomeIcon icon={faHeart} className="faHeart" />
-              <FontAwesomeIcon icon={faComment} className="faComment" />
-              <FontAwesomeIcon
-                icon={faArrowUpFromBracket}
-                className="faArrowUpFromBracket"
-              /> */}
+              <img
+                className="fa-heart"
+                src="/images/jiyulBaek/heart_white.png"
+                alt="unclicked_heart"
+              />
+              <img
+                className="fa-comment"
+                src="/images/jiyulBaek/comment.png"
+                alt="comment-icon"
+              />
+              <img
+                className="fa-arrow-up-from-bracket"
+                src="/images/jiyulBaek/ArrowUpFromBracket.png"
+                alt="share-icon"
+              />
             </div>
             <div className="feed-icons-right">
-              {/* <FontAwesomeIcon icon={faBookmark} className="faBookmark" /> */}
+              <img
+                className="fa-bookmark"
+                src="/images/jiyulBaek/bookmark.png"
+                alt="bookmark-icon"
+              />
             </div>
           </div>
 
@@ -121,12 +142,16 @@ function MainJiyul() {
             <div>42분 전</div>
           </div>
 
-          <ul className="commentList">
+          <ul className="comment-list">
             <li className="commentList-first">
               <span className="comment-account">neceosecius</span>
               <span>거봐 좋았잖아~</span>
               <button>삭제</button>
-              {/* <FontAwesomeIcon icon={faHeart} className="faHeart" /> */}
+              <img
+                className="fa-heart"
+                src="/images/jiyulBaek/heart_white.png"
+                alt="unclicked_heart"
+              />
             </li>
           </ul>
 
