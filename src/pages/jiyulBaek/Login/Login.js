@@ -33,16 +33,19 @@ function LoginJiyul() {
         placeholder="비밀번호"
         onChange={saveUserPw}
       />
-      <button
-        className={
-          isUserIdValid && isUserPwValid ? 'login-btn' : 'login-btn disabled'
-        }
-        onClick={() => {
-          navigate('/main-jiyul');
-        }}
-      >
-        로그인
-      </button>
+      <Link to="/main-jiyul">
+        <button
+          disabled={!(isUserIdValid && isUserPwValid)}
+          className={
+            isUserIdValid && isUserPwValid ? 'login-btn' : 'login-btn disabled'
+          }
+          onClick={e => {
+            navigate('/main-jiyul');
+          }}
+        >
+          로그인
+        </button>
+      </Link>
       <a className="ask" href="/">
         비밀번호를 잊으셨나요?
       </a>

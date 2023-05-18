@@ -52,18 +52,18 @@ body {
   }
 
   .id-input {
-    @include widthHeight(75%, 36px);
+    @include widthHeight(230px, 33px);
     @include inputStyles;
     margin-top: 15px;
   }
 
   .pw-input {
-    @include widthHeight(75%, 36px);
+    @include widthHeight(230px, 33px);
     @include inputStyles;
   }
 
   .login-btn {
-    @include widthHeight(75%, 30px);
+    @include widthHeight(230px, 30px);
     margin: 8px 0;
     border: 1px rgba(202, 224, 249, 1) solid;
     border-radius: 3px;
