@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Comment from './Comment';
 import './Main.scss';
 
 function MainJiyul() {
@@ -19,17 +20,8 @@ function MainJiyul() {
     }
   };
 
-  const showingComment = comments.map((comment, index) => (
-    <li className="commentList-first" key={index}>
-      <span className="comment-account">jy_baek</span>
-      <span>{comment}</span>
-      <button>삭제</button>
-      <img
-        className="fa-heart"
-        src="/images/jiyulBaek/heart_white.png"
-        alt="unclicked_heart"
-      />
-    </li>
+  const commentList = comments.map(comment => (
+    <Comment key={comment.index} comment={comment} />
   ));
 
   return (
@@ -172,7 +164,7 @@ function MainJiyul() {
             <div>42분 전</div>
           </div>
 
-          <ul className="comment-list">{showingComment}</ul>
+          <ul className="comment-list">{commentList}</ul>
 
           <div className="comment">
             <input
