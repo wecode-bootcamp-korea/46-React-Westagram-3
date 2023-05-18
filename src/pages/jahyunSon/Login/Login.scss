@@ -13,7 +13,7 @@
     border: 1px solid lightgrey;
     background-color: white;
 
-    .topContainer {
+    .top-container {
       @include flexSort(column, center, center);
 
       .logo {
@@ -62,7 +62,7 @@
       }
     }
 
-    .forgotPassword {
+    .forgot-password {
       margin: 15px;
       color: #04386c;
     }

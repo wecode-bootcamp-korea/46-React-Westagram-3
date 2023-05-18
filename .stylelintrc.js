@@ -10,7 +10,7 @@ module.exports = {
     'at-rule-no-unknown': null,
     'selector-class-pattern': '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$',
     'keyframes-name-pattern': /^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/,
-    'max-nesting-depth': 3,
+    'max-nesting-depth': 5,
     'no-descending-specificity': null,
     'string-quotes': 'single',
     'scss/at-rule-conditional-no-parentheses': null,
