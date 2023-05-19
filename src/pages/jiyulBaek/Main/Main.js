@@ -4,11 +4,17 @@ import './Main.scss';
 
 function MainJiyul() {
   const [inputValue, setInputValue] = useState('');
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState([{ id: 1, comment: '' }]);
 
   const addComment = () => {
     if (inputValue !== '') {
-      setComments([...comments, inputValue]);
+      setComments([
+        ...comments,
+        {
+          id: comments[comments.length - 1].id + 1,
+          comment: inputValue,
+        },
+      ]);
       setInputValue('');
     }
   };
@@ -21,7 +27,7 @@ function MainJiyul() {
   };
 
   const commentList = comments.map(comment => (
-    <Comment key={comment} comment={comment} />
+    <Comment key={comment.id} comment={comment.comment} />
   ));
 
   return (
