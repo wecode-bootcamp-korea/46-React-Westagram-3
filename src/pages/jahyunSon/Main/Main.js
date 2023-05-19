@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Main.scss';
 
 function MainJahyun() {
+  const [comment, setComment] = useState('');
+  const [commentList, setCommentList] = useState([]);
+
+  const postComment = e => {
+    e.preventDefault();
+    setComment(e.target.value);
+  };
+
+  const pushCommentList = e => {
+    e.preventDefault();
+    setCommentList(commentList => [...commentList, comment]);
+  };
+
+  const displayComment = commentList.map((comment, index) => (
+    <div className="comment" key={index}>
+      <span className="bold floatLeft">wecode_bootcamp</span>
+      {comment.toString()}
+    </div>
+  ));
+  console.log(commentList);
+
   return (
     <body className="main">
       <nav>
@@ -114,6 +135,7 @@ function MainJahyun() {
                   <div className="comment">
                     <span className="bold floatLeft">taylorswift</span> Wow
                     beautiful~
+                    <div className="comment">{displayComment}</div>
                   </div>
                   <button
                     className="deleteBtn lighter hidden"
@@ -127,14 +149,17 @@ function MainJahyun() {
                   </button>
                 </div>
               </div>
-              <div className="postComment">
+              <form className="postComment">
                 <input
                   type="text"
                   placeholder="댓글 달기..."
                   className="commentInput light"
+                  onChange={e => postComment(e)}
                 />
-                <button className="commentBtn">게시</button>
-              </div>
+                <button className="commentBtn" onClick={pushCommentList}>
+                  게시
+                </button>
+              </form>
             </section>
           </article>
         </section>
