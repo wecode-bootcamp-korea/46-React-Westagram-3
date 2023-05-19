@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Comment from '../Comment/Comment';
 import './Main.scss';
 
 function MainJahyun() {
@@ -6,22 +7,18 @@ function MainJahyun() {
   const [commentList, setCommentList] = useState([]);
 
   const postComment = e => {
-    e.preventDefault();
     setComment(e.target.value);
   };
 
   const pushCommentList = e => {
     e.preventDefault();
     setCommentList(commentList => [...commentList, comment]);
+    setComment('');
   };
 
-  const displayComment = commentList.map((comment, index) => (
-    <div className="comment" key={index}>
-      <span className="bold floatLeft">wecode_bootcamp</span>
-      {comment.toString()}
-    </div>
-  ));
-  console.log(commentList);
+  // const onSubmit = e => {
+  //   e.preventDefault;
+  // };
 
   return (
     <body className="main">
@@ -135,7 +132,6 @@ function MainJahyun() {
                   <div className="comment">
                     <span className="bold floatLeft">taylorswift</span> Wow
                     beautiful~
-                    <div className="comment">{displayComment}</div>
                   </div>
                   <button
                     className="deleteBtn lighter hidden"
@@ -148,15 +144,20 @@ function MainJahyun() {
                     <i className="fa fa-heart" id="likeBtn"></i>
                   </button>
                 </div>
+                <Comment comment={comment} commentList={commentList} />
               </div>
               <form className="postComment">
                 <input
                   type="text"
-                  placeholder="댓글 달기..."
                   className="commentInput light"
                   onChange={e => postComment(e)}
+                  value={comment}
                 />
-                <button className="commentBtn" onClick={pushCommentList}>
+                <button
+                  className="commentBtn"
+                  type="submit"
+                  onClick={pushCommentList}
+                >
                   게시
                 </button>
               </form>
