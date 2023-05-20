@@ -7,8 +7,7 @@ function LoginJiyul() {
   const [userId, setUserId] = useState('');
   const [userPw, setUserPw] = useState('');
 
-  const isUserIdValid = userId.includes('@');
-  const isUserPwValid = userPw.length >= 5;
+  const isValid = userId.includes('@') && userPw.length >= 5;
 
   const saveUserId = e => {
     setUserId(e.target.value);
@@ -35,10 +34,8 @@ function LoginJiyul() {
       />
       <Link to="/main-jiyul">
         <button
-          disabled={!(isUserIdValid && isUserPwValid)}
-          className={
-            isUserIdValid && isUserPwValid ? 'login-btn' : 'login-btn disabled'
-          }
+          disabled={!isValid}
+          className={`login-btn ${!isValid && 'disabled'}`}
           onClick={e => {
             navigate('/main-jiyul');
           }}

@@ -26,10 +26,6 @@ function MainJiyul() {
     }
   };
 
-  const commentList = comments.map(comment => (
-    <Comment key={comment.id} comment={comment.comment} />
-  ));
-
   return (
     <>
       <header>
@@ -170,7 +166,11 @@ function MainJiyul() {
             <div>42분 전</div>
           </div>
 
-          <ul className="comment-list">{commentList}</ul>
+          <ul className="comment-list">
+            {comments.map(comment => (
+              <Comment key={comment.id} comment={comment.comment} />
+            ))}
+          </ul>
 
           <div className="comment-input">
             <input
