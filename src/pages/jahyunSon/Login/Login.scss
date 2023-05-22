@@ -5,11 +5,11 @@
   place-items: center;
   text-align: center;
 
-  article {
+  .loginBox {
     @include flexSort(column, space-between, center);
     width: 320px;
     height: 350px;
-    margin: 30px;
+    margin: 100px;
     border: 1px solid lightgrey;
     background-color: white;
 
@@ -22,7 +22,7 @@
         font-size: 40px;
       }
 
-      #loginBtn {
+      .loginBtn {
         width: 220px;
         height: 30px;
         margin: 10px;
@@ -32,16 +32,16 @@
         color: white;
       }
 
-      #loginBtn:hover,
-      #loginBtn:focus {
+      .loginBtn:hover,
+      .loginBtn:focus {
         background-color: #5eacd6;
       }
 
-      #loginBtn:disabled {
+      .loginBtn:disabled {
         background-color: #c4e3fb;
       }
 
-      #userInput {
+      .userInput {
         @include flexSort(column, center, center);
 
         & > input {

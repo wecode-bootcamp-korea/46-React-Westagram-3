@@ -32,26 +32,26 @@ const LoginJahyun = () => {
 
   return (
     <main className="login">
-      <article>
+      <article className="loginBox">
         <div className="top-container">
           <p className="logo">Westagram</p>
-          <div id="userInput">
+          <div className="userInput">
             <input
               type="text"
-              id="userId"
+              className="userId"
               value={userId}
               placeholder="전화번호, 사용자 이름 또는 이메일"
               onChange={e => saveUserId(e)}
             />
             <input
               type="password"
-              id="password"
+              className="password"
               value={userPassword}
               placeholder="비밀번호"
               onChange={e => savePassword(e)}
             />
           </div>
-          <button id="loginBtn" onClick={goToMain} disabled={disabled}>
+          <button className="loginBtn" onClick={goToMain} disabled={disabled}>
             로그인
           </button>
         </div>

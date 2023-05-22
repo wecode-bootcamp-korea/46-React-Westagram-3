@@ -16,10 +16,6 @@ function MainJahyun() {
     setComment('');
   };
 
-  // const onSubmit = e => {
-  //   e.preventDefault;
-  // };
-
   return (
     <body className="main">
       <nav>
@@ -67,7 +63,7 @@ function MainJahyun() {
       <main>
         <section className="feed">
           <article className="post">
-            <header>
+            <header className="postHeader">
               <div className="userInfo">
                 <img
                   src="/images/jahyunSon/feedProfile.jpeg"
