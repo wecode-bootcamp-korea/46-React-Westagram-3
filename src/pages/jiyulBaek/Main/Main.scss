@@ -38,7 +38,11 @@ input {
   background-color: transparent;
 }
 
-$logoFont: 'Lobster', cursive;
+a {
+  text-decoration: none;
+}
+
+$logoFont: 'Lobster', cursie;
 $textFont: 'Noto Sans', sans-serif;
 
 $spacing: 30px;
@@ -101,6 +105,7 @@ $grayColor: rgb(115, 115, 115);
 
 header {
   position: fixed;
+  z-index: 1;
   width: 100%;
   background-color: $whiteColor;
 }
@@ -277,7 +282,7 @@ main {
 
 .image {
   img {
-    @include widthHeight(100%, 450px);
+    @include widthHeight(100%, 70vh);
   }
 }
 

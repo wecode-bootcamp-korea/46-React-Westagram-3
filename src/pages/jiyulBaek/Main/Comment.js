@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Comment = ({ comment }) => {
+const Comment = ({ id, comment, account }) => {
   return (
-    <li className="comment">
-      <span className="comment-account">jy_baek</span>
+    <li className="comment" id={id}>
+      <span className="comment-account">{account}</span>
       <span>{comment}</span>
       <button>삭제</button>
       <img
