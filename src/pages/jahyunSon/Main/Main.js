@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Comment from '../Comment/Comment';
+import { FOOTER_INFO_LIST } from './data';
 import './Main.scss';
 
 function MainJahyun() {
@@ -256,10 +257,14 @@ function MainJahyun() {
             </div>
           </section>
           <footer>
-            <p className="lighter">
-              Instagram 정보 • 지원 • 홍보 센터 • API • 채용 정보 •
-              개인정보처리방침 • 약관 • 디렉터리 • 프로필 • 해시태그 • 언어{' '}
-            </p>
+            {FOOTER_INFO_LIST.map(info => (
+              <span className="lighter footerList" key={info.id}>
+                <a href="#" className="info">
+                  {info.text}
+                </a>
+                &nbsp;•&nbsp;
+              </span>
+            ))}
             <p className="lighter">© 2023 INSTAGRAM</p>
           </footer>
         </aside>
