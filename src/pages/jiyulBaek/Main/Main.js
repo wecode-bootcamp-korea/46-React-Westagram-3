@@ -52,6 +52,10 @@ function MainJiyul() {
     }
   };
 
+  const deleteComment = id => {
+    setCommentList(item => item.filter(el => el.id !== id));
+  };
+
   return (
     <>
       <header>
@@ -203,6 +207,7 @@ function MainJiyul() {
                         id={comment.id}
                         comment={comment.comment}
                         account={comment.username}
+                        deleteComment={deleteComment}
                       />
                     ))}
                   </ul>
