@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Comment from './Comment';
 import { FOOTER_INFO_LIST } from './data/data.js';
 import './Main.scss';
 
 function MainJiyul() {
   const [inputValue, setInputValue] = useState('');
-  const [comments, setComments] = useState([{ id: 1, comment: '' }]);
+
   const [feedList, setFeedList] = useState([]);
   const [commentList, setCommentList] = useState([]);
+
+  const nextId = useRef(0);
+  const [targetId, setTargetId] = useState(0);
 
   useEffect(() => {
     fetch('/data/feedData.json', {
@@ -29,10 +32,12 @@ function MainJiyul() {
 
   const addComment = () => {
     if (inputValue !== '') {
-      setComments([
-        ...comments,
+      setCommentList([
+        ...commentList,
         {
-          id: comments[comments.length - 1].id + 1,
+          id: nextId.current++,
+          feedId: Number(targetId),
+          username: 'jy_baek',
           comment: inputValue,
         },
       ]);
@@ -204,9 +209,13 @@ function MainJiyul() {
                   <div className="comment-input">
                     <input
                       key={feed.id}
+                      id={feed.id}
                       value={inputValue}
                       type="text"
-                      onChange={event => setInputValue(event.target.value)}
+                      onChange={event => {
+                        setInputValue(event.target.value);
+                        setTargetId(event.target.id);
+                      }}
                       onKeyUp={handleKeyUp}
                       placeholder="댓글 달기"
                     />
