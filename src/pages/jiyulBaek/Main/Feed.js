@@ -99,15 +99,6 @@ const Feed = ({
       </div>
 
       <ul className="comment-list">
-        {/* {commentList.map(comment => (
-          <Comment
-            key={comment.id}
-            id={comment.id}
-            comment={comment.comment}
-            account={comment.username}
-            deleteComment={deleteComment}
-          />
-        ))} */}
         {newCommentList.map(comment => (
           <Comment
             key={comment.id}
