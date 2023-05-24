@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import Comment from '../Comment/Comment';
 import './Post.scss';
 
-// eslint-disable-next-line react/prop-types
-const Post = ({ username }) => {
+const Post = ({ user }) => {
   const [comment, setComment] = useState('');
   const [commentList, setCommentList] = useState([]);
 
@@ -21,12 +20,8 @@ const Post = ({ username }) => {
     <article className="post">
       <header className="postHeader">
         <div className="userInfo">
-          <img
-            src="/images/jahyunSon/feedProfile.jpeg"
-            alt="profile"
-            className="pfp"
-          />
-          <p className="username bold">{username}</p>
+          <img src={user.image} alt="profile" className="pfp" />
+          <p className="username bold">{user.username}</p>
         </div>
         <img
           src="/images/jahyunSon/threedots.png"
@@ -34,7 +29,7 @@ const Post = ({ username }) => {
           className="icon"
         />
       </header>
-      <img src="/images/jahyunSon/feed1.png" alt="feed" className="feedImg" />
+      <img src={user.image} alt="feed" className="feedImg" />
       <div className="interactionBar">
         <div className="interactionBarLeft">
           <img
@@ -71,26 +66,11 @@ const Post = ({ username }) => {
         </p>
       </div>
       <p className="caption">
-        <span className="username bold">{username}</span> 제주도 바다~...{' '}
-        <span className="light">더 보기</span>
+        <span className="username bold">{user.username}</span>{' '}
+        {user.address.address}
       </p>
       <section className="commentSection">
         <div className="commentsList">
-          <div className="commentAndBtns" id="likeAndDelete">
-            <div className="comment">
-              <span className="bold floatLeft">taylorswift</span> Wow beautiful~
-            </div>
-            <button
-              className="deleteBtn lighter hidden"
-              type="button"
-              id="deleteBtn0"
-            >
-              삭제
-            </button>
-            <button className="likeBtn" type="button" id="likeBtn">
-              <i className="fa fa-heart" id="likeBtn"></i>
-            </button>
-          </div>
           <Comment comment={comment} commentList={commentList} />
         </div>
         <form className="postComment">
@@ -104,6 +84,7 @@ const Post = ({ username }) => {
             className="commentBtn"
             type="submit"
             onClick={pushCommentList}
+            disabled={!comment}
           >
             게시
           </button>

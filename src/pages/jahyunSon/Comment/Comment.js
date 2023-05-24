@@ -1,4 +1,5 @@
 import React from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import './Comment.scss';
 
 const Comment = props => {
@@ -8,15 +9,11 @@ const Comment = props => {
         <span className="bold floatLeft">wecode_bootcamp</span>
         {comment.toString()}
       </div>
-      <button
-        className="deleteBtn lighter hidden"
-        type="button"
-        id="deleteBtn0"
-      >
+      <button className="deleteBtn lighter" type="button">
         삭제
       </button>
-      <button className="likeBtn" type="button" id="likeBtn">
-        <i className="fa fa-heart" id="likeBtn"></i>
+      <button className="likeBtn" type="button">
+        <img src="./images/jahyunSon/heart-empty.svg" alt="heart" />
       </button>
     </div>
   ));

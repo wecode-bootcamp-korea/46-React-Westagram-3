@@ -1,0 +1,25 @@
+@import '../../../styles/mixin';
+
+.commentAndBtns {
+  @include flexSort(row, flex-start, flex-start);
+
+  .comment {
+    width: 400px;
+    margin: 3px 0;
+    float: left;
+    word-wrap: break-word;
+  }
+
+  .deleteBtn {
+    width: 20px;
+    height: 20px;
+    margin: 0px 5px;
+  }
+
+  .likeBtn {
+    width: 11px;
+    height: 11px;
+    margin: 3px 5px;
+    color: black;
+  }
+}

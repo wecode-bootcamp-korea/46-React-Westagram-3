@@ -56,30 +56,6 @@
     .commentsList {
       margin: 1px 0 1px 10px;
       padding: 0;
-
-      .commentAndBtns {
-        @include flexSort(row, flex-start, flex-start);
-        //align-items: top;
-
-        .comment {
-          width: 400px;
-          margin: 3px 0;
-          float: left;
-          word-wrap: break-word;
-        }
-
-        .deleteBtn {
-          width: 20px;
-          height: 20px;
-          margin: 0px 5px;
-        }
-
-        .likeBtn {
-          width: 10px;
-          height: 10px;
-          margin: 3px 5px;
-        }
-      }
     }
 
     .postComment {

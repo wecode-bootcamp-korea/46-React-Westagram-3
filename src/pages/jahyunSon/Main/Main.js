@@ -67,7 +67,7 @@ function MainJahyun() {
       <main>
         <section className="feed">
           {userList.map(user => {
-            return <Post key={user.id} username={user.username} />;
+            return <Post key={user.id} user={user} />;
           })}
         </section>
 
@@ -75,7 +75,7 @@ function MainJahyun() {
           <section className="myProfile">
             <img
               src="/images/jahyunSon/wecode_logo.png"
-              alt="my profile picture"
+              alt="my profile"
               className="myPfp"
             />
             <div className="myHandle">
