@@ -1,26 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import Comment from './Comment';
 
-const Feed = ({ feed, inputValue, setInputValue }) => {
-  const [commentList, setCommentList] = useState([]);
-  const nextId = useRef(0);
-  const [targetId, setTargetId] = useState(0);
-
-  useEffect(() => {
-    fetch('/data/commentData.json')
-      .then(res => res.json())
-      .then(data => {
-        setCommentList(data);
-      });
-  }, []);
+const Feed = ({
+  id,
+  username,
+  content,
+  commentList,
+  account_url,
+  feed_url,
+}) => {
+  const [inputValue, setInputValue] = useState('');
+  const [newCommentList, setNewCommentList] = useState(commentList);
 
   const addComment = () => {
     if (inputValue !== '') {
-      setCommentList([
-        ...commentList,
+      setNewCommentList([
+        ...newCommentList,
         {
-          id: nextId.current++,
-          feedId: Number(targetId),
+          id: newCommentList.length + 1,
           username: 'jy_baek',
           comment: inputValue,
         },
@@ -37,18 +34,15 @@ const Feed = ({ feed, inputValue, setInputValue }) => {
   };
 
   const deleteComment = id => {
-    setCommentList(item => item.filter(el => el.id !== id));
+    setNewCommentList(item => item.filter(el => el.id !== id));
   };
 
-  const prevComments = commentList.filter(
-    comment => comment.feedId === feed.id
-  );
   return (
-    <div className="feed" key={feed.id}>
+    <div className="feed">
       <div className="top">
         <div className="top-logo">
-          <img src={`${feed.account_url}`} alt={`accountImage${feed.id}`} />
-          <span>{feed.username}</span>
+          <img src={`${account_url}`} alt="accountImage" />
+          <span>{username}</span>
         </div>
         <div className="top-icon">
           <img
@@ -59,7 +53,7 @@ const Feed = ({ feed, inputValue, setInputValue }) => {
         </div>
       </div>
       <div className="image">
-        <img src={`${feed.feed_url}`} alt="feedImage" />
+        <img src={`${feed_url}`} alt="feedImage" />
       </div>
       <div className="feed-icons">
         <div className="feed-icons-left">
@@ -98,14 +92,23 @@ const Feed = ({ feed, inputValue, setInputValue }) => {
         </span>
       </div>
       <div className="contents">
-        <span className="contents-account">{feed.username}</span>
-        <span>{feed.content}</span>
+        <span className="contents-account">{username}</span>
+        <span>{content}</span>
         <span>더 보기</span>
         <div>42분 전</div>
       </div>
 
       <ul className="comment-list">
-        {prevComments.map(comment => (
+        {/* {commentList.map(comment => (
+          <Comment
+            key={comment.id}
+            id={comment.id}
+            comment={comment.comment}
+            account={comment.username}
+            deleteComment={deleteComment}
+          />
+        ))} */}
+        {newCommentList.map(comment => (
           <Comment
             key={comment.id}
             id={comment.id}
@@ -117,18 +120,15 @@ const Feed = ({ feed, inputValue, setInputValue }) => {
       </ul>
       <div className="comment-input">
         <input
-          key={feed.id}
-          id={feed.id}
           value={inputValue}
           type="text"
           onChange={event => {
             setInputValue(event.target.value);
-            setTargetId(event.target.id);
           }}
           onKeyUp={handleKeyUp}
           placeholder="댓글 달기"
         />
-        <button onClick={addComment}>게시</button>
+        <button>게시</button>
       </div>
     </div>
   );

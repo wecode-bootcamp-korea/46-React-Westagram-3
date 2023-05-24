@@ -5,8 +5,8 @@ import { FOOTER_INFO_LIST } from './data/data.js';
 import './Main.scss';
 
 function MainJiyul() {
-  const [inputValue, setInputValue] = useState('');
   const [feedList, setFeedList] = useState([]);
+
   useEffect(() => {
     fetch('/data/feedData.json', {
       method: 'GET',
@@ -16,6 +16,7 @@ function MainJiyul() {
         setFeedList(data);
       });
   }, []);
+
   return (
     <>
       <Nav />
@@ -26,11 +27,12 @@ function MainJiyul() {
               return (
                 <Feed
                   key={feed.id}
-                  feed={feed}
-                  inputValue={inputValue}
-                  setInputValue={setInputValue}
-                  feedList={feedList}
-                  setFeedList={setFeedList}
+                  id={feed.id}
+                  username={feed.username}
+                  content={feed.content}
+                  commentList={feed.commentList}
+                  account_url={feed.account_url}
+                  feed_url={feed.feed_url}
                 />
               );
             })}
