@@ -1,3 +1,30 @@
 * {
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  font-size: 12px;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.bold {
+  font-weight: 560;
+}
+
+.light {
+  color: #969696;
+  font-weight: 300;
+}
+
+.lighter {
+  color: #cfcfcf;
+  font-weight: 300;
+  font-size: 11px;
 }

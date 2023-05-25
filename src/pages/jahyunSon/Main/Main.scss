@@ -1,0 +1,148 @@
+@import '../../../styles/mixin';
+
+@media screen and (max-width: 840px) {
+  .main-right {
+    display: none;
+  }
+}
+
+.main {
+  .icon {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+  }
+
+  .liked {
+    color: #fb3958;
+  }
+
+  .floatLeft {
+    margin: 0;
+    padding-right: 6px;
+    float: left;
+  }
+
+  .navBar {
+    @include flexSort(row, space-between, center);
+    margin: 15px;
+
+    .navBarLogo {
+      @include flexSort(row, center, center);
+      margin-left: 50px;
+
+      .logo {
+        margin: 0 10px;
+        padding: 1px 10px;
+        border-left: 1px solid black;
+        font-family: 'Lobster', sans-serif;
+        font-size: 20px;
+      }
+    }
+
+    .searchBar {
+      @include flexSort(row, center, center);
+
+      .searchInput {
+        width: 160px;
+        height: 22px;
+        border: 1px solid #e6e6e6;
+        background-color: #fafafa;
+
+        &::placeholder {
+          font-size: 10px;
+          text-align: center;
+        }
+      }
+
+      .magnifyingGlass {
+        width: 8px;
+        margin: 2px;
+        transform: translate(-102px, 0.5px);
+      }
+    }
+
+    .iconsOnRight {
+      @include flexSort(row, flex-end, center);
+
+      .icons {
+        margin: 0 8px;
+        padding: 0;
+        border: none;
+        background-color: white;
+      }
+    }
+  }
+
+  main {
+    @include flexSort(row, center, flex-start);
+    padding: 30px 10px;
+    border-top: 1px solid #e6e6e6;
+    background-color: #fafafa;
+
+    .feed {
+      margin: 0 20px 0 50px;
+    }
+  }
+
+  aside.main-right {
+    width: 250px;
+    margin: 0 50px 0 20px;
+
+    .myProfile {
+      display: flex;
+      margin: 5px;
+
+      .myPfp {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+    }
+
+    .myHandle,
+    .otherUserInfo {
+      @include flexSort(column, center, flex-start);
+      margin: 0 8px;
+    }
+
+    .story,
+    .suggestedForYou {
+      margin-top: 13px;
+      border: 1px solid #e6e6e6;
+      background-color: white;
+
+      .header {
+        @include flexSort(row, space-between, center);
+
+        span {
+          margin: 10px 12px;
+        }
+      }
+
+      .profile {
+        display: flex;
+        margin: 2px 12px 12px;
+
+        .pfp {
+          width: 30px;
+          margin-right: 0px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    footer {
+      width: 230px;
+      margin: 10px 0;
+      padding: 0 5px;
+
+      .footerList {
+        .info {
+          color: lightgrey;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
