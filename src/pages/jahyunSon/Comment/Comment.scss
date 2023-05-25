@@ -5,21 +5,28 @@
 
   .comment {
     width: 400px;
-    margin: 3px 0;
+    margin: 3px 5px 2px 0;
     float: left;
     word-wrap: break-word;
   }
 
-  .deleteBtn {
+  .button {
+    padding: 0;
+    border: none;
+    background: inherit;
+    box-shadow: none;
+  }
+
+  .delete {
     width: 20px;
     height: 20px;
     margin: 0px 5px;
   }
 
-  .likeBtn {
+  .like {
     width: 11px;
     height: 11px;
-    margin: 3px 5px;
+    margin: 3px 3px;
     color: black;
   }
 }

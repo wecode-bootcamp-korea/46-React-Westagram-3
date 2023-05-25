@@ -23,13 +23,7 @@
     float: left;
   }
 
-  button {
-    padding: 0;
-    border: none;
-    background-color: white;
-  }
-
-  nav {
+  .navBar {
     @include flexSort(row, space-between, center);
     margin: 15px;
 
@@ -71,8 +65,11 @@
     .iconsOnRight {
       @include flexSort(row, flex-end, center);
 
-      .icon {
-        margin: 0 10px;
+      .icons {
+        margin: 0 8px;
+        padding: 0;
+        border: none;
+        background-color: white;
       }
     }
   }

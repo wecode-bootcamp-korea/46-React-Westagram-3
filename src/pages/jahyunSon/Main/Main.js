@@ -22,7 +22,7 @@ function MainJahyun() {
 
   return (
     <div className="main">
-      <nav>
+      <nav className="navBar">
         <div className="navBarLogo">
           <img
             src="/images/jahyunSon/instagram.png"
@@ -40,21 +40,21 @@ function MainJahyun() {
           />
         </div>
         <div className="iconsOnRight">
-          <button>
+          <button className="icons">
             <img
               src="/images/jahyunSon/explore.png"
               alt="explore page"
               className="icon"
             />
           </button>
-          <button>
+          <button className="icons">
             <img
               src="/images/jahyunSon/heart.png"
               alt="notificaions"
               className="icon"
             />
           </button>
-          <button>
+          <button className="icons">
             <img
               src="/images/jahyunSon/profile.png"
               alt="my profile"

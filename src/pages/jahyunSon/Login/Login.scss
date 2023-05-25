@@ -30,15 +30,15 @@
         border-radius: 4px;
         background-color: #c4e3fb;
         color: white;
-      }
 
-      .loginBtn:hover,
-      .loginBtn:focus {
-        background-color: #5eacd6;
-      }
+        &:hover,
+        &:focus {
+          background-color: #5eacd6;
+        }
 
-      .loginBtn:disabled {
-        background-color: #c4e3fb;
+        &:disabled {
+          background-color: #c4e3fb;
+        }
       }
 
       .userInput {

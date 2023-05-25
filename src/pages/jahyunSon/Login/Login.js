@@ -5,7 +5,7 @@ import './Login.scss';
 const LoginJahyun = () => {
   const navigate = useNavigate();
   const [userId, setUserId] = useState('');
-  const [userPassword, setUserPassword] = useState('');
+  const [password, setPassword] = useState('');
   const [disabled, setDisabled] = useState(true);
 
   const goToMain = () => {
@@ -14,11 +14,11 @@ const LoginJahyun = () => {
 
   const saveUserId = e => {
     setUserId(e.target.value);
-    isUserInfoValid(e.target.value, userPassword);
+    isUserInfoValid(e.target.value, password);
   };
 
   const savePassword = e => {
-    setUserPassword(e.target.value);
+    setPassword(e.target.value);
     isUserInfoValid(userId, e.target.value);
   };
 
@@ -28,7 +28,26 @@ const LoginJahyun = () => {
       : setDisabled(true);
   };
 
-  console.log(disabled);
+  const handleButton = () => {
+    fetch('http://10.58.52.149:8000/auth/signin', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json;charset=utf-8' },
+      body: JSON.stringify({
+        email: userId,
+        password,
+      }),
+    })
+      .then(response => {
+        if (response.ok) {
+          alert('로그인 성공');
+          goToMain();
+        } else {
+          throw new Error('통신 실패...');
+        }
+        return response.json();
+      })
+      .then(result => console.log(result));
+  };
 
   return (
     <main className="login">
@@ -46,12 +65,16 @@ const LoginJahyun = () => {
             <input
               type="password"
               className="password"
-              value={userPassword}
+              value={password}
               placeholder="비밀번호"
               onChange={e => savePassword(e)}
             />
           </div>
-          <button className="loginBtn" onClick={goToMain} disabled={disabled}>
+          <button
+            className="loginBtn"
+            onClick={handleButton}
+            disabled={disabled}
+          >
             로그인
           </button>
         </div>
