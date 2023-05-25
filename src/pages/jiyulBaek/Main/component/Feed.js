@@ -13,7 +13,7 @@ const Feed = ({
   const [newCommentList, setNewCommentList] = useState(commentList);
 
   const addComment = () => {
-    if (inputValue !== '') {
+    if (inputValue) {
       setNewCommentList([
         ...newCommentList,
         {
@@ -119,7 +119,7 @@ const Feed = ({
           onKeyUp={handleKeyUp}
           placeholder="댓글 달기"
         />
-        <button>게시</button>
+        <button onClick={addComment}>게시</button>
       </div>
     </div>
   );
