@@ -2,7 +2,7 @@ import React from 'react';
 
 const Comment = ({ id, comment, account, deleteComment }) => {
   return (
-    <li className="comment" id={id}>
+    <li className="comment" key={id}>
       <span className="comment-account">{account}</span>
       <span>{comment}</span>
       <button
