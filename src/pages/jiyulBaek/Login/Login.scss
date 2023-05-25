@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans:wght@300&display=swap');
+
+@import '../../../styles/reset';
+@import '../../../styles/variables';
+
+@mixin absoluteLeft($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin widthHeight($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin inputStyles {
+  margin: 5px 0;
+  padding: 0px 8px;
+  border: transparent;
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 3px;
+  background-color: transparent;
+  background-color: #fafafa;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+}
+
+.login {
+  @include absoluteLeft(50%, 50%);
+  @include flexColumn;
+  @include widthHeight(350px, 400px);
+  align-items: center;
+  margin: auto;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(219, 219, 219);
+  border-radius: 1px;
+
+  .title {
+    margin: 30px 0;
+    font-family: $logoFont;
+    font-size: 3em;
+    text-align: center;
+  }
+
+  .id-input {
+    @include widthHeight(230px, 33px);
+    @include inputStyles;
+    margin-top: 15px;
+  }
+
+  .pw-input {
+    @include widthHeight(230px, 33px);
+    @include inputStyles;
+  }
+
+  .login-btn {
+    @include widthHeight(230px, 30px);
+    margin: 8px 0;
+    border: 1px rgba(202, 224, 249, 1) solid;
+    border-radius: 3px;
+    opacity: 1;
+    background-color: transparent;
+    background-color: #0095f6;
+    color: white;
+
+    &.disabled {
+      opacity: 0.5;
+      background-color: #4cb5f9;
+    }
+  }
+
+  .ask {
+    position: absolute;
+    bottom: 20px;
+    color: rgb(0, 55, 107);
+    font-size: 14px;
+    text-decoration: none;
+  }
+}
